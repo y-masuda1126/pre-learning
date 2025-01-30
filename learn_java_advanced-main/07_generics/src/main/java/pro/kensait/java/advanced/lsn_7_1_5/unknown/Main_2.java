@@ -32,5 +32,9 @@ public class Main_2 {
         List<String> list8 = new ArrayList<>();
         List<?> list9 = list8;
         // list9.add(100); // ただし要素の追加はできない（型の安全性が保証される）
+        
+        list1.add(2);
+        System.out.println(list2);
+        System.out.println(list1.get(0));
     }
 }

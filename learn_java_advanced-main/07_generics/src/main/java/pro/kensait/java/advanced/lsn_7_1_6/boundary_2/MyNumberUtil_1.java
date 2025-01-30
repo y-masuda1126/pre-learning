@@ -4,10 +4,11 @@ import java.util.List;
 
 public class MyNumberUtil_1 {
     public static void process(List<? extends Number> list) {
-        Number num = list.get(0);
+    	Number num = list.get(0);
         System.out.println(num);
 
         // 以下はコンパイルエラー
-        // list.add(100);
+//         list.add(100);
+//         list.add(new Object());
     }
 }

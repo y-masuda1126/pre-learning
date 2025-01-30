@@ -11,7 +11,7 @@ public class Main_1 {
         List<Number> list2 = Arrays.asList(1, 2, 3);
         MyNumberUtil_1.process(list2);
 
-        List<Object> list3 = Arrays.asList(1, 2, 3);
+//        List<Object> list3 = Arrays.asList(1, 2, 3);
         // MyNumberUtil_1.process(list3); コンパイルエラー
     }
 }

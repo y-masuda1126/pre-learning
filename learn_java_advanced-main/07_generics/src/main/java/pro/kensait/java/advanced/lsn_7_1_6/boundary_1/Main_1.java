@@ -8,6 +8,6 @@ public class Main_1 {
         List<Integer> intList = Arrays.asList(1, 2, 3);
 
         // コンパイルエラー
-        //MyNumberUtil.printSum1(intList);
+//        MyNumberUtil_1.printSum1(intList);
     }
 }

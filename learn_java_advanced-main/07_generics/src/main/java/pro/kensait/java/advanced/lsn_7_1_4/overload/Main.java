@@ -5,6 +5,7 @@ public class Main {
         // Stringが引数の場合は、CharSequenceなのかComparableなのか判断できないため、
         // メソッドの前に<>で明示的に指定が必要
         MyUtil.<CharSequence>process("100");
+//        MyUtil.process("100"); // あいまいなためコンパイルエラー
 
         // Integerの場合は明示的に指定は不要
         MyUtil.process(100);
