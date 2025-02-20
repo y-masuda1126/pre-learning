@@ -1,0 +1,27 @@
+plugins {
+    id "java"
+}
+
+group "org.example"
+version "1.0-SNAPSHOT"
+
+sourceCompatibility = "11"
+targetCompatibility = "11"
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "mysql:mysql-connector-java:8.0.19"
+
+    testImplementation "org.junit.jupiter:junit-jupiter:5.9.0"
+    testImplementation "org.dbunit:dbunit:2.7.3"
+    testImplementation "org.mockito:mockito-core:4.7.0"
+    testImplementation "org.mockito:mockito-inline:4.7.0"
+    testImplementation "org.mockito:mockito-junit-jupiter:4.7.0"
+    testImplementation 'org.slf4j:slf4j-log4j12:1.7.21'
+}
+
+test {
+    useJUnitPlatform()
+}

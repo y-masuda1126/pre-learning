@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.CalculatorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-02-19T13:57:15" hostname="masudayuusukenoMacBook-Pro.local" time="0.032">
+  <properties/>
+  <testcase name="testTaxPrice()" classname="org.example.CalculatorTest" time="0.028"/>
+  <testcase name="testTaxPriceException()" classname="org.example.CalculatorTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
