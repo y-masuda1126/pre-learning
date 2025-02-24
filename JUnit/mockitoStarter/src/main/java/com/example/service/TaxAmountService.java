@@ -20,7 +20,7 @@ public class TaxAmountService {
 
         // 税率を取得
         var taxRate = taxService.getTaxRate(date);
-
+//        System.out.println("taxRate:" + taxRate); // 確認用に出力した
         // 引数で渡された税抜金額と税率より税額を計算
         return BigDecimal.valueOf(baseAmount).multiply(taxRate)
                 .divide(ONEHUNDRED, 0, RoundingMode.HALF_UP).intValue();

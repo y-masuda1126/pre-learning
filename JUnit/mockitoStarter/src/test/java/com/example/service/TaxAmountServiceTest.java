@@ -3,32 +3,42 @@ package com.example.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class TaxAmountServiceTest {
+public class TaxAmountServiceTest {
 
 	@Mock
 	private TaxService taxService;
+
+	@Captor
+	private ArgumentCaptor<LocalDate> dateCaptor;
 
 	@InjectMocks
 	private TaxAmountService taxAmountService;
 
     @Test
     @DisplayName("消費税率8%で端数切捨ての場合")
-    void test1() {
+    public void test1() {
 
     	when(taxService.getTaxRate(any())).thenReturn(BigDecimal.valueOf(8));
     	var taxAmount1 = taxAmountService.getTaxAmount(106, LocalDate.of(2019, 9, 30));
+//    	System.out.println("taxAmount1:" + taxAmount1); // 確認用に出力した
     	assertEquals(8, taxAmount1);
+
+    	verify(taxService, times(1)).getTaxRate(any());
+
     }
 
     @Test
