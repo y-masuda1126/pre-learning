@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class AccountDao {
 	private static final String URL = "jdbc:mysql://localhost:3306/sample?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private static final String USER = "root";
-	private static final String PASS = "pass";
+	private static final String PASS = "yusuke.mysql";
 
 	private static final String SELECT_SQL = "SELECT * FROM account WHERE id = ?;";
 	private static final String INSERT_SQL = "INSERT IGNORE INTO account (id, pass) values(?, ?);";

@@ -25,7 +25,7 @@ public class AccountDaoTest {
     private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
     private static final String CONNECTION_URL = "jdbc:mysql://localhost:3306/sample?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String USER = "root";
-    private static final String PASSWORD = "pass";
+    private static final String PASSWORD = "yusuke.mysql"; // パスワードを"pass"→""(空)に修正→caching_sha2_passwordを使用して"yusuke.mysql"に変更
     private static final String SCHEMA = "sample";
 
     private static IDatabaseTester dbTester;
