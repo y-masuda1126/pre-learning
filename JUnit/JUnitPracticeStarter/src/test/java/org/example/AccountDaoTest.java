@@ -1,5 +1,9 @@
 package org.example;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.File;
+
 import org.dbunit.Assertion;
 import org.dbunit.IDatabaseTester;
 import org.dbunit.JdbcDatabaseTester;
@@ -10,12 +14,12 @@ import org.dbunit.dataset.ITable;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.ext.mysql.MySqlMetadataHandler;
 import org.dbunit.operation.DatabaseOperation;
-import org.junit.jupiter.api.*;
-
-import java.io.File;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 // ☆ テストの実行順を設定
 // @Orderで設定順にテスト実行します
@@ -41,7 +45,7 @@ public class AccountDaoTest {
     /**
      * 接続パスワード
      */
-    private static final String PASSWORD = "pass";
+    private static final String PASSWORD = "yusuke.mysql";
 
     /**
      * スキーマ名
@@ -130,5 +134,24 @@ public class AccountDaoTest {
         // 期待値と実際の値の比較を行う
         // dbunitのassertEqualsを使う
         Assertion.assertEquals(expectedTable, actualTable);
+    }
+
+    @Test
+    @Order(3)
+    public void searchTestReturnsNull() throws Exception {
+
+        // 初期データを投入
+        IDataSet dataSet =
+                new FlatXmlDataSetBuilder().build(new File("src/test/resources/data/init_1.xml"));
+
+        dbTester.setDataSet(dataSet);
+        dbTester.setSetUpOperation(DatabaseOperation.CLEAN_INSERT); // 全てのデータを削除後、INSERT
+        dbTester.onSetup();
+
+        AccountDao dao = new AccountDao();
+
+        Account account = dao.search("2_3");
+        assertNull(account);
+
     }
 }

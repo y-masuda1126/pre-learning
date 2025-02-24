@@ -1,5 +1,7 @@
 package org.example;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
@@ -23,12 +25,12 @@ public class BirthdayServiceTest {
             var age = service.getAge();
 
             //（１）getAgeのメソッド検証
-
+            assertEquals(20, age);
 
             var birthdayToday = service.isBirthdayToday();
 
             //（２）isBirthdayTodyのメソッド検証
-
+            assertTrue(birthdayToday);
 
         }
     }
